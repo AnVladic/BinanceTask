@@ -4,7 +4,7 @@ import asyncio
 import datetime
 from binance import AsyncClient, BinanceSocketManager
 
-
+ 
 class Symbol():
     class Ticket:
         def __init__(self, time, price):
@@ -57,7 +57,7 @@ class Symbol():
                     self.max_ticket = current_ticket
                     self.print_max_price()
 
-                if self.max_ticket.price / current_ticket.price <= fall_limit:
+                if current_ticket.price / self.max_ticket.price <= fall_limit:
                     print(f'{self.symbol} price fell below {fall_limit * 100}%. '
                     'current_price = {self.current_price.price}, max_price = {self.max_ticket.price}')
         # await client.close_connection()
